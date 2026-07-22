@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 type ActiveNavItems = "Home" | "About" | "Pricing" | "Contact";
 
@@ -41,18 +42,37 @@ const Navbar = () => {
       </div>
 
       <ul className="justify-self-center self-center flex justify-center items-center gap-6 border-[#383838] border rounded-full h-10 bg-[#272727]">
-        {navItems.map((i) => (
-          <li
-            key={i}
-            className={`font-light text-sm px-6 h-full rounded-full flex justify-center items-center cursor-pointer hover:bg-white hover:text-black transition-colors duration-100 ${activeTab === i ? "bg-white text-black" : "text-white"}`}
-            onClick={() => setActiveTab(i)}
-          >
-            {i}
-          </li>
-        ))}
+        {navItems.map((tab) => {
+          const isActive = activeTab === tab;
+
+          return (
+            <li key={tab} className="relative">
+              <button
+                onClick={() => setActiveTab(tab)}
+                className={`relative z-10 rounded-full px-5 py-2 text-sm transition-colors duration-200 ${
+                  isActive ? "text-black" : "text-white/70 hover:text-white"
+                }`}
+              >
+                {tab}
+              </button>
+
+              {isActive && (
+                <motion.div
+                  layoutId="active-pill"
+                  className="absolute inset-0 z-0 rounded-full bg-white"
+                  transition={{
+                    type: "spring",
+                    stiffness: 380,
+                    damping: 30,
+                  }}
+                />
+              )}
+            </li>
+          );
+        })}
       </ul>
 
-      <div className="flex justify-self-end items-center">
+      <div className="justify-self-end self-center flex items-center bg-[#272727] border-[#383838] border rounded-full h-10 px-6">
         <button>Login</button>
       </div>
     </nav>
