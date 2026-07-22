@@ -1,15 +1,18 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: var(--font-poppins), system-ui, sans-serif;
+  --font-poppins: var(--font-poppins);
+}
+
 .bg {
   background: radial-gradient(
     ellipse at center,
-    #434343 15%,
-    #292929 80%,
+    #393939 20%,
+    #292929 50%,
     #1c1c1c 100%
   );
   background-repeat: no-repeat;
-  height: 100vh;
-  position: relative;
 }
 
 .bg::after {
@@ -21,10 +24,16 @@
   background: radial-gradient(
     ellipse at center,
     transparent 50%,
-    rgba(0, 0, 0, 0.35) 75%,
+    rgba(0, 0, 0, 0.35) 65%,
     rgba(0, 0, 0, 0.95) 95%
   );
-
-  /* Crucial so clicks pass through to content */
   pointer-events: none;
+}
+
+.recolor-to-gray {
+  filter: brightness(1) brightness(32%);
+}
+
+.recolor-to-black {
+  filter: brightness(1) brightness(0%);
 }

@@ -1,0 +1,29 @@
+.animate-clip-slide-right {
+  animation: clip-slide-right 1.5s cubic-bezier(0.68, 0.07, 0.31, 1.01) forwards;
+}
+
+@keyframes clip-slide-right {
+  0% {
+    clip-path: inset(0 70% 0 0);
+  }
+  100% {
+    clip-path: inset(0 0% 0 0);
+  }
+}
+
+.animate-scale-top-left {
+  animation: scale-top-left 0.5s ease-in-out reverse;
+  animation-delay: 1s;
+  animation-fill-mode: forwards; /* Holds the 100% keyframe state */
+}
+
+@keyframes scale-top-left {
+  0% {
+    transform: translateX(-200%) translateY(-150%) scale(0.1);
+    filter: opacity(0);
+  }
+  100% {
+    transform: translateX(0%) translateY(0%) scale(1);
+    filter: opacity(1);
+  }
+}
