@@ -6,6 +6,14 @@
   --color-shade-gray: #8c8c8c;
 }
 
+html,
+body,
+a,
+button,
+input {
+  cursor: none !important;
+}
+
 .recolor-to-gray {
   filter: brightness(1) brightness(32%);
 }
