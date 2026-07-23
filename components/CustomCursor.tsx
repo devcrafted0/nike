@@ -27,7 +27,19 @@ export default function CustomCursor() {
         x: smoothX,
         y: smoothY,
       }}
-      className="fixed top-0 left-0 w-6 h-6 rounded-full pointer-events-none z-50 bg-white/10 backdrop-blur-md border border-white/30 shadow-[0_4px_16px_0_rgba(255,255,255,0.15)]"
+      className="
+    fixed top-0 left-0
+    size-6
+    rounded-full
+    pointer-events-none
+    z-50
+
+    bg-black/10
+    backdrop-blur-xl
+    border border-white/40
+    ring-1 ring-black/10
+
+    shadow-[0_4px_20px_rgba(0,0,0,0.12),inset_0_1px_1px_rgba(255,255,255,0.4)]"
     />
   );
 }

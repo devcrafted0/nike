@@ -65,10 +65,12 @@ const HeroContent = () => {
           {sizes.map((s, i) => (
             <li
               key={i}
-              className={`flex justify-center items-center rounded-full transition-all duration-200 border border-white/70 ${activeSize === s && "bg-white/20 backdrop-blur-lg"}`}
               onClick={() => setActiveSize(s)}
+              className={`flex h-10 w-10 items-center justify-center rounded-full border border-white/70 transition-all duration-200 ${
+                activeSize === s ? "bg-white/20 backdrop-blur-lg" : ""
+              }`}
             >
-              <span className="text-xs p-2">{s}</span>
+              <span className="text-xs leading-none">{s}</span>
             </li>
           ))}
         </div>
