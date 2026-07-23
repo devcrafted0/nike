@@ -3,19 +3,13 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ChevronRight, ChevronLeft } from "lucide-react";
+import { ChevronRight, ChevronLeft } from "lucide-react";
 
 import "./styles/ShoeSlider.css";
 
 const TOTAL_SHOES = 5;
 
-const ShoeSlider = ({
-  isFinished,
-  sourceRef,
-}: {
-  isFinished: boolean;
-  sourceRef: (node: HTMLDivElement | null) => void;
-}) => {
+const ShoeSlider = ({ isFinished }: { isFinished: boolean }) => {
   const [currentIndex, setCurrentIndex] = useState(1);
 
   const handleNext = () => {
@@ -27,10 +21,7 @@ const ShoeSlider = ({
       {isFinished && (
         <div className="relative flex flex-col justify-center items-center h-full w-full mx-auto min-h-100 max-w-5xl overflow-hidden">
           {/* Viewport Container */}
-          <div
-            ref={sourceRef}
-            className="relative w-full h-full flex justify-center items-center overflow-hidden"
-          >
+          <div className="relative w-full h-full flex justify-center items-center overflow-hidden">
             <AnimatePresence mode="popLayout">
               <motion.div
                 key={currentIndex}

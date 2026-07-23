@@ -1,13 +1,7 @@
 "use client";
 
 import LoadingNike from "@/components/LoadingNike";
-import {
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from "react";
+import { useState } from "react";
 
 import "./styles/Hero.css";
 import Navbar from "@/components/Navbar";
@@ -15,19 +9,6 @@ import ShoeSlider from "@/components/ShoeSlider";
 
 const Hero = () => {
   const [isFinished, setIsFinished] = useState<boolean>(false);
-  const [width, setWidth] = useState<number>(0);
-
-  const sourceRef = useCallback((node: HTMLDivElement | null) => {
-    if (!node) return;
-
-    setWidth(node.getBoundingClientRect().width);
-
-    const observer = new ResizeObserver(([entry]) => {
-      setWidth(entry.contentRect.width);
-    });
-
-    observer.observe(node);
-  }, []);
 
   return (
     <div className="h-screen relative">
@@ -60,7 +41,7 @@ const Hero = () => {
       <main className="text-white px-10 py-5 flex flex-col h-screen">
         <Navbar />
         <div className="flex-1">
-          <ShoeSlider isFinished={isFinished} sourceRef={sourceRef} />
+          <ShoeSlider isFinished={isFinished} />
         </div>
       </main>
     </div>
