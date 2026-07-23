@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins, Montserrat, Inter } from "next/font/google";
 import "./globals.css";
 import CustomCursor from "@/components/CustomCursor";
+import { ScrollProvider } from "@/context/useScrollContext";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -76,8 +77,10 @@ export default function RootLayout({
       className={`${poppins.variable} ${montserrat.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col select-none">
-        <CustomCursor />
-        {children}
+        <ScrollProvider>
+          <CustomCursor />
+          {children}
+        </ScrollProvider>
       </body>
     </html>
   );
