@@ -1,11 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, ChevronLeft } from "lucide-react";
-
-import "./styles/ShoeSlider.css";
 import { useScrollContext } from "@/context/useScrollContext";
+import { shoes } from "@/utils/Shoes";
+
+import Image from "next/image";
+import "./styles/ShoeSlider.css";
 
 const TOTAL_SHOES = 5;
 
@@ -36,7 +37,7 @@ const ShoeSlider = () => {
               className="absolute inset-0 flex justify-center items-center"
             >
               <Image
-                src={`/shoes/${currentIndex}.png`}
+                src={shoes[currentIndex - 1]}
                 alt={`Shoe ${currentIndex}`}
                 fill
                 priority

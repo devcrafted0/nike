@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useScrollContext } from "@/context/useScrollContext";
+import { shoes } from "@/utils/Shoes";
 
 export default function FloatingObject() {
   const { scrollY } = useScroll();
@@ -32,7 +33,7 @@ export default function FloatingObject() {
           }}
         >
           <Image
-            src={`/shoes/${currentIndex}.png`}
+            src={shoes[currentIndex - 1]}
             alt="Floating Shoe"
             width={1024}
             height={863}
