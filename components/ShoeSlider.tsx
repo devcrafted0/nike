@@ -57,18 +57,28 @@ const ShoeSlider = ({
             </AnimatePresence>
           </div>
 
-          <div className="absolute bottom-30 w-full flex justify-center items-center ">
+          <motion.div
+            initial={{ opacity: 0, scale: 0, y: 65 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{
+              type: "spring",
+              stiffness: 120,
+              damping: 20,
+              mass: 1,
+            }}
+            className="absolute bottom-30 w-full flex justify-center items-center"
+          >
             <div className="w-full max-w-5xl h-150 rounded-full border-b-8 border-x-8 border-white/20 slider -z-10" />
             <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
               onClick={handleNext}
-              className="flex items-center justify-center bg-white text-black font-semibold h-10 w-10 rounded-full cursor-pointer shadow-lg hover:bg-neutral-200 transition-colors z-10 absolute bottom-3 left-1/2 translate-x-[-50%]"
+              className="flex items-center justify-center bg-white text-black font-semibold h-10 w-10 rounded-full cursor-pointer shadow-lg hover:bg-neutral-200 transition-colors z-10 absolute bottom-3 left-1/2 -translate-x-1/2"
             >
               <ChevronLeft className="w-5 h-5 translate-x-1" />
               <ChevronRight className="w-5 h-5 -translate-x-1" />
             </motion.button>
-          </div>
+          </motion.div>
         </div>
       )}
     </>
