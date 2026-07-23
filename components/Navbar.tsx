@@ -52,7 +52,7 @@ const Navbar = () => {
         </div>
       </Link>
 
-      <ul className="justify-self-center self-center flex justify-center items-center gap-6 border-[#383838] border rounded-full h-10 bg-[#272727]">
+      <ul className="justify-self-center self-center flex justify-center items-center gap-6 border-white/20 border rounded-full h-10 bg-white/20 backdrop-blur-lg">
         {navItems.map((tab) => {
           const isActive = activeTab === tab;
 

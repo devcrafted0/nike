@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, ChevronLeft } from "lucide-react";
@@ -9,9 +9,17 @@ import "./styles/ShoeSlider.css";
 
 const TOTAL_SHOES = 5;
 
-const ShoeSlider = ({ isFinished }: { isFinished: boolean }) => {
-  const [currentIndex, setCurrentIndex] = useState(1);
+interface ShoeSliderProps {
+  isFinished: boolean;
+  currentIndex: number;
+  setCurrentIndex: Dispatch<SetStateAction<number>>;
+}
 
+const ShoeSlider = ({
+  isFinished,
+  currentIndex,
+  setCurrentIndex,
+}: ShoeSliderProps) => {
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex % TOTAL_SHOES) + 1);
   };
