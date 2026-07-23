@@ -3,6 +3,9 @@
 @theme {
   --font-sans: var(--font-poppins), system-ui, sans-serif;
   --font-poppins: var(--font-poppins);
+  --font-montserrat: var(--font-montserrat);
+  --font-inter: var(--font-inter);
+
   --color-shade-gray: #8c8c8c;
 }
 

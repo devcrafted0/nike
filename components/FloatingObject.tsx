@@ -8,14 +8,14 @@ export default function FloatingObject() {
   const { scrollY } = useScroll();
 
   // Horizontal movement
-  const x = useTransform(scrollY, [0, 1000], [0, 800]);
+  const x = useTransform(scrollY, [0, 1000], [0, 550]);
 
-  const y = useTransform(scrollY, [0, 1000], [0, 100]);
+  const y = useTransform(scrollY, [0, 1000], [0, -30]);
 
   const scale = useTransform(scrollY, [0, 1000], [1, 2]);
 
   // Rotation
-  const rotate = useTransform(scrollY, [0, 1000], [1, 10]);
+  const rotate = useTransform(scrollY, [0, 1000], [1, 0]);
 
   const { isAtTop, currentIndex } = useScrollContext();
 

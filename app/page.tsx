@@ -1,6 +1,7 @@
 import FloatingObject from "@/components/FloatingObject";
 import LenisProvider from "@/components/providers/LenisProvider";
 import { ScrollProvider } from "@/context/useScrollContext";
+import Description from "@/pages/Description";
 import Hero from "@/pages/Hero";
 
 const page = () => {
@@ -9,7 +10,7 @@ const page = () => {
       <ScrollProvider>
         <div>
           <Hero />
-          <div className="h-screen"></div>
+          <Description />
           <FloatingObject />
         </div>
       </ScrollProvider>
