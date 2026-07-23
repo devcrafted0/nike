@@ -1,16 +1,37 @@
 "use client";
 
 import LoadingNike from "@/components/LoadingNike";
-import { useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 
 import "./styles/Hero.css";
 import Navbar from "@/components/Navbar";
+import ShoeSlider from "@/components/ShoeSlider";
 
 const Hero = () => {
   const [isFinished, setIsFinished] = useState<boolean>(false);
+  const [width, setWidth] = useState<number>(0);
+
+  const sourceRef = useCallback((node: HTMLDivElement | null) => {
+    if (!node) return;
+
+    setWidth(node.getBoundingClientRect().width);
+
+    const observer = new ResizeObserver(([entry]) => {
+      setWidth(entry.contentRect.width);
+    });
+
+    observer.observe(node);
+  }, []);
+
   return (
     <div className="h-screen relative">
-      <div className="bg h-screen w-full absolute top-0 left-0 -z-10 flex justify-center items-center">
+      <div className="bg h-screen w-full absolute top-0 left-0 -z-10 flex justify-center items-center overflow-hidden">
         <div className="translate-x-10 animate-rise-up">
           <img
             src="/nike.png"
@@ -36,8 +57,11 @@ const Hero = () => {
         </div>
       )}
 
-      <main className="text-white px-10 py-5">
+      <main className="text-white px-10 py-5 flex flex-col h-screen">
         <Navbar />
+        <div className="flex-1">
+          <ShoeSlider isFinished={isFinished} sourceRef={sourceRef} />
+        </div>
       </main>
     </div>
   );

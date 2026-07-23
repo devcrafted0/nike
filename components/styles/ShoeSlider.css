@@ -1,0 +1,10 @@
+.slider-wrap {
+  perspective: 1000px;
+  perspective-origin: 100% 50%;
+}
+
+.slider {
+  transform: scaleX(1) scaleY(2) scaleZ(2) rotateX(84deg) rotateY(-3deg)
+    rotateZ(18deg) translateX(0) translateY(0) translateZ(-100px) skewX(0deg)
+    skewY(0deg);
+}
