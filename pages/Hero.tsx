@@ -7,12 +7,14 @@ import "./styles/Hero.css";
 import Navbar from "@/components/Navbar";
 import ShoeSlider from "@/components/ShoeSlider";
 import HeroContent from "@/components/HeroContent";
+import { useScrollContext } from "@/context/useScrollContext";
 
 const Hero = () => {
   const [isFinished, setIsFinished] = useState<boolean>(false);
-  const [currentIndex, setCurrentIndex] = useState(1);
 
   const [isMounted, setIsMounted] = useState(false);
+
+  const { currentIndex } = useScrollContext();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -56,10 +58,7 @@ const Hero = () => {
         <main className="text-white px-15 py-10 flex flex-col h-screen relative">
           <Navbar />
           <div className="flex-1 relative">
-            <ShoeSlider
-              currentIndex={currentIndex}
-              setCurrentIndex={setCurrentIndex}
-            />
+            <ShoeSlider />
             <HeroContent />
           </div>
         </main>
