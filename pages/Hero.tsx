@@ -53,7 +53,7 @@ const Hero = () => {
       )}
 
       {isMounted && (
-        <main className="text-white px-10 py-5 flex flex-col h-screen relative">
+        <main className="text-white px-15 py-10 flex flex-col h-screen relative">
           <Navbar />
           <div className="flex-1 relative">
             <ShoeSlider

@@ -7,14 +7,12 @@ export default function CustomCursor() {
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
 
-  // High stiffness + low damping/mass = zero input lag with silky smooth motion
   const springConfig = { damping: 15, stiffness: 600, mass: 0.1 };
   const smoothX = useSpring(mouseX, springConfig);
   const smoothY = useSpring(mouseY, springConfig);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      // 24px width/height (w-6 h-6) means center offset is 12px
       mouseX.set(e.clientX - 12);
       mouseY.set(e.clientY - 12);
     };
