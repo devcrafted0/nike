@@ -1,7 +1,7 @@
 import FloatingObject from "@/components/FloatingObject";
 import LenisProvider from "@/components/providers/LenisProvider";
-import Description from "@/pages/Description";
-import Hero from "@/pages/Hero";
+import Description from "@/sections/Description";
+import Hero from "@/sections/Hero";
 
 const page = () => {
   return (
