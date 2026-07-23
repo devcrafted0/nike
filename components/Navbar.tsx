@@ -35,9 +35,10 @@ const Navbar = () => {
       initial={{ y: -30, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{
-        duration: 0.8,
-        delay: 1, 
-        ease: [0.16, 1, 0.3, 1], 
+        type: "spring",
+        stiffness: 100,
+        damping: 20,
+        mass: 1,
       }}
       className="grid grid-cols-3"
     >
@@ -86,7 +87,7 @@ const Navbar = () => {
       <motion.button
         whileHover="hover"
         initial="initial"
-        className="relative justify-self-end self-center flex items-center bg-[#272727] border-[#383838] border rounded-full h-10 px-6 cursor-pointer overflow-hidden"
+        className="relative justify-self-end self-center flex items-center border-white/20 bg-white/20 backdrop-blur-lg border rounded-full h-10 px-6 cursor-pointer overflow-hidden"
       >
         {/* Rising White Layer */}
         <motion.div

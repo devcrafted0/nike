@@ -3,6 +3,7 @@
 @theme {
   --font-sans: var(--font-poppins), system-ui, sans-serif;
   --font-poppins: var(--font-poppins);
+  --color-shade-gray: #8c8c8c;
 }
 
 .recolor-to-gray {

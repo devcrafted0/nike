@@ -1,15 +1,26 @@
 "use client";
 
 import LoadingNike from "@/components/LoadingNike";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import "./styles/Hero.css";
 import Navbar from "@/components/Navbar";
 import ShoeSlider from "@/components/ShoeSlider";
+import HeroContent from "@/components/HeroContent";
 
 const Hero = () => {
   const [isFinished, setIsFinished] = useState<boolean>(false);
   const [currentIndex, setCurrentIndex] = useState(1);
+
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsMounted(true);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="h-screen relative">
@@ -41,16 +52,18 @@ const Hero = () => {
         </div>
       )}
 
-      <main className="text-white px-10 py-5 flex flex-col h-screen">
-        <Navbar />
-        <div className="flex-1">
-          <ShoeSlider
-            isFinished={isFinished}
-            currentIndex={currentIndex}
-            setCurrentIndex={setCurrentIndex}
-          />
-        </div>
-      </main>
+      {isMounted && (
+        <main className="text-white px-10 py-5 flex flex-col h-screen relative">
+          <Navbar />
+          <div className="flex-1 relative">
+            <ShoeSlider
+              currentIndex={currentIndex}
+              setCurrentIndex={setCurrentIndex}
+            />
+            <HeroContent />
+          </div>
+        </main>
+      )}
     </div>
   );
 };
